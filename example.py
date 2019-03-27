@@ -45,3 +45,33 @@ if __name__ == "__main__":
     print("Analysis results:")
     for result in linker.results:
         print(json.dumps(result))
+
+# Expected output:
+#
+# {
+#   "target": "6.6.6.6",
+#   "ratio": 2,
+#   "deviations_from_mean": 1.224744871391589,
+#   "infected_count": 2,
+#   "infected_percent": 0.6666666666666666,
+#   "clean_count": 0,
+#   "clean_percent": 0
+# }
+# {
+#   "target": "8.8.8.8",
+#   "ratio": 1,
+#   "deviations_from_mean": 0,
+#   "infected_count": 3,
+#   "infected_percent": 1,
+#   "clean_count": 3,
+#   "clean_percent": 1
+# }
+# {
+#   "target": "9.9.9.9",
+#   "ratio": 0,
+#   "deviations_from_mean": -1.224744871391589,
+#   "infected_count": 0,
+#   "infected_percent": 0,
+#   "clean_count": 1,
+#   "clean_percent": 0.3333333333333333
+# }
