@@ -14,6 +14,8 @@ each other but not in common with the control group.  This raises the botnet
 control channel to the top of the list while minimizing traffic that all
 hosts have in common such as social media and content delivery networks.
 
+![Missing Link Diagram](https://github.com/MattCarothers/missinglink/raw/master/docs/MissingLinkDiagram.png "Missing Link Diagram")
+
 For each relationship target, the algorithm outputs these fields:
 
 * target - the target of the relationship (e.g. destination IP)
