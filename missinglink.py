@@ -31,17 +31,17 @@ class MissingLink():
         # Is this a new target?  If so, initialize the dictionaries
         if target not in self.relationships:
             self.relationships[target] = {}
-            self.relationships[target]["sample"] = {}
-            self.relationships[target]["control"] = {}
+            self.relationships[target][self.sample_label] = {}
+            self.relationships[target][self.control_label] = {}
 
         # Is this source part of our sample population or part of the control
         # population?
         if self.is_sample(source):
             self.observed_samples[source] = True
-            self.relationships[target]["sample"][source] = True
+            self.relationships[target][self.sample_label][source] = True
         else:
             self.observed_controls[source] = True
-            self.relationships[target]["control"][source] = True
+            self.relationships[target][self.control_label][source] = True
 
     @property
     def observed_target_count(self):
@@ -82,9 +82,9 @@ class MissingLink():
 
         for target in self.relationships.keys():
             # Number of members of our sample population related to this target
-            observed_sample_count = len(self.relationships[target]["sample"].keys())
+            observed_sample_count = len(self.relationships[target][self.sample_label].keys())
             # Number of members of our control population related to this target
-            observed_control_count = len(self.relationships[target]["control"].keys())
+            observed_control_count = len(self.relationships[target][self.control_label].keys())
 
             # Percent of observed sample population related to this target
             if total_observed_sample_count > 0:
