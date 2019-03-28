@@ -29,19 +29,21 @@ if __name__ == "__main__":
     linker.link("10.0.0.4", "8.8.8.8")
     linker.link("10.0.0.5", "8.8.8.8")
     linker.link("10.0.0.6", "8.8.8.8")
-    
+
     # 9.9.9.9 is another benign IP.  One of our control IPs connected to
     # it.
     linker.link("10.0.0.6", "9.9.9.9")
 
     # Analyze the results
     linker.analyze()
-    print("Number of entities in the sample group:",
-            linker.observed_sample_count)
-    print("Number of entities in the control group:", 
-            linker.observed_control_count)
-    print("Members of the sample group:", linker.samples)
-    print("Members of the control group:", linker.controls)
+    print("Number of entities in the '{}' group: {}".format(
+            linker.sample_label, linker.observed_sample_count))
+    print("Number of entities in the '{}' group: {}".format(
+            linker.control_label, linker.observed_control_count))
+    print("Members of the '{}' group: {}".format(
+        linker.sample_label, linker.samples))
+    print("Members of the '{}' group: {}".format(
+        linker.control_label, linker.controls))
     print("Analysis results:")
     for result in linker.results:
         print(json.dumps(result))
